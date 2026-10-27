@@ -35,4 +35,21 @@ function validarOportunidade(req,res,next){
     if(!tipos.includes(tipo)){
         erros.push[`O tipo deve ser um desses: ${tipos.join(', ')}.`]
     }
+
+    if(textoPreenchido(instituicao)){
+        erros.push('O nome da instituição é invalido')
+    }
+
+    if(!modalidades.includes(modalidade)){
+        erros.push[`A modalidade deve ser uma dessas: ${modalidades.join(', ')}.`]
+    }
+
+    if(textoPreenchido(prazo) & dataValida(prazo)){
+        erros.push('O prazo é invalido')
+    }
+
+    if(!/^https?:\/\//.test(link)){
+        erros.push('O link não segue o padrão aceito')
+    }
+
 }
